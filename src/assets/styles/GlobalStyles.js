@@ -61,6 +61,31 @@ const GlobalStyle = createGlobalStyle`
       transform: translateY(-5px);
     }
   }
+
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 2.5rem;
+    }
+
+    p {
+      font-size: 1rem;
+    }
+
+    .cta {
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    h1 {
+      font-size: 2rem;
+    }
+
+    .cta {
+      font-size: 0.9rem;
+    }
+  }
 `;
 
 export default GlobalStyle;
