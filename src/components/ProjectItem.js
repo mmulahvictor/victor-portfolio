@@ -3,14 +3,15 @@ import React from 'react';
 import styled from 'styled-components';
 
 const ProjectCard = styled.div`
-  background-color: #f5f5f5;
-  border-radius: 8px;
+  background-color: white;
+  border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease-in-out;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 
   &:hover {
-    transform: scale(1.05);
+    transform: translateY(-10px);
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2);
   }
 `;
 
@@ -22,45 +23,52 @@ const ProjectImage = styled.img`
 
 const ProjectInfo = styled.div`
   padding: 1rem;
+  text-align: center;
 `;
 
 const ProjectTitle = styled.h3`
+  font-size: 1.5rem;
   margin-bottom: 0.5rem;
+  color: #2c3e50;
 `;
 
 const ProjectDescription = styled.p`
-  font-size: 0.9rem;
-  color: #666;
+  font-size: 1rem;
+  color: #7f8c8d;
+  margin-bottom: 1rem;
 `;
 
 const TechStack = styled.div`
   display: flex;
-  flex-wrap: wrap;
+  justify-content: center;
   gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
 
   span {
-    background-color: #61dafb;
+    background-color: #3498db;
     color: white;
-    padding: 0.25rem 0.5rem;
-    border-radius: 4px;
+    padding: 0.25rem 0.75rem;
+    border-radius: 5px;
     font-size: 0.75rem;
   }
 `;
 
 const ProjectLink = styled.a`
-  display: inline-block;
-  margin-top: 1rem;
-  color: #61dafb;
+  color: #3498db;
+  font-size: 1rem;
   text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
 
   &:hover {
-    text-decoration: underline;
+    color: #2980b9;
   }
 `;
 
 const ProjectItem = ({ project }) => {
   const { title, description, image, techStack, link } = project;
-  
+
   return (
     <ProjectCard>
       <ProjectImage src={image} alt={title} />
