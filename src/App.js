@@ -8,10 +8,12 @@ import AboutPage from './pages/AboutPage';
 import ProjectsPage from './pages/ProjectsPage';
 import BlogPage from './pages/BlogPage';
 import ContactPage from './pages/ContactPage';
+import GlobalStyle from './assets/styles/GlobalStyles';
 
 function App() {
   return (
     <Router>
+      <GlobalStyle />
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
