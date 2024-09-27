@@ -2,27 +2,64 @@
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
-  body {
+  * {
     margin: 0;
     padding: 0;
-    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+  }
+
+  h1, h2, h3 {
+    margin-bottom: 1rem;
+    color: #2c3e50;
+  }
+
+  p {
+    margin-bottom: 1rem;
+    color: #7f8c8d;
   }
 
   a {
-    color: #61dafb;
     text-decoration: none;
-  }
-
-  a:hover {
-    color: #21a1f1;
+    color: inherit;
   }
 
   button {
-    background-color: #61dafb;
-    border: none;
-    padding: 10px;
-    color: white;
     cursor: pointer;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    background-color: #3498db;
+    color: white;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: #2980b9;
+    }
+  }
+
+  .cta {
+    background-color: #e74c3c;
+    padding: 0.75rem 1.5rem;
+    color: white;
+    text-transform: uppercase;
+    font-size: 1.1rem;
+    border-radius: 50px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+
+    &:hover {
+      background-color: #c0392b;
+      transform: translateY(-5px);
+    }
   }
 `;
 
