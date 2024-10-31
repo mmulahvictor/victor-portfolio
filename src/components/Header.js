@@ -1,78 +1,73 @@
 // src/components/Header.js
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
-const Nav = styled.nav`
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
-  padding: 1rem;
-  color: white;
+const HeaderContainer = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  z-index: 100;
-  transition: transform 0.3s ease-in-out;
+  padding: 1rem 2rem;
+  background-color: #2c3e50; /* Dark background */
+  color: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  position: relative;
 
-  ${(props) => (props.scrolled ? 'transform: translateY(-100%);' : '')}
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 `;
 
-const NavLinks = styled.div`
+const Logo = styled.div`
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #3498db; /* Logo color */
+  
+  &:hover {
+    color: #2980b9; /* Darker shade on hover */
+  }
+`;
+
+const Nav = styled.nav`
   display: flex;
   gap: 2rem;
 
-  a {
-    font-size: 1.1rem;
-    color: #ecf0f1;
-    text-transform: uppercase;
-    position: relative;
-    
-    &:before {
-      content: '';
-      position: absolute;
-      width: 100%;
-      height: 2px;
-      background-color: #e74c3c;
-      bottom: -5px;
-      left: 0;
-      opacity: 0;
-      transform: scaleX(0);
-      transition: transform 0.3s ease, opacity 0.3s ease;
-    }
+  @media (max-width: 768px) {
+    flex-direction: column;
+    width: 100%;
+    padding-top: 1rem;
+  }
+`;
 
-    &:hover:before {
-      opacity: 1;
-      transform: scaleX(1);
-    }
+const NavLink = styled(Link)`
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: #3498db; /* Change color on hover */
+  }
+
+  @media (max-width: 768px) {
+    padding: 0.5rem 0;
+    width: 100%;
+    text-align: center;
   }
 `;
 
 const Header = () => {
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
-
   return (
-    <Nav scrolled={scrolled}>
-      <h1>Victor</h1>
-      <NavLinks>
-        <Link to="/">Home</Link>
-        <Link to="/about">About</Link>
-        <Link to="/projects">Projects</Link>
-        <Link to="/blog">Blog</Link>
-        <Link to="/contact">Contact</Link>
-      </NavLinks>
-    </Nav>
+    <HeaderContainer>
+      <Logo>Victor's Portfolio</Logo>
+      <Nav>
+        <NavLink to="/">Home</NavLink>
+        <NavLink to="/projects">Projects</NavLink>
+        <NavLink to="/blog">Blog</NavLink> {/* Added Blog link */}
+        <NavLink to="/contact">Contact</NavLink>
+      </Nav>
+    </HeaderContainer>
   );
 };
 

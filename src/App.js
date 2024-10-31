@@ -2,26 +2,30 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Header from './components/Header';
-import Footer from './components/Footer';
-import Home from './pages/Home';
-import AboutPage from './pages/AboutPage';
+import HomePage from './pages/HomePage';
 import ProjectsPage from './pages/ProjectsPage';
-import BlogPage from './pages/BlogPage';
 import ContactPage from './pages/ContactPage';
-import GlobalStyle from './assets/styles/GlobalStyles';
+import Footer from './components/Footer';
+import BlogPage from './pages/BlogPage';
+import styled from 'styled-components';
+
+const MainContent = styled.main`
+  padding-top: 80px; /* Adjust this based on your header's height */
+  min-height: calc(100vh - 80px); /* To ensure it occupies the full viewport */
+`;
 
 function App() {
   return (
     <Router>
-      <GlobalStyle />
       <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<AboutPage />} />
-        <Route path="/projects" element={<ProjectsPage />} />
-        <Route path="/blog" element={<BlogPage />} />
-        <Route path="/contact" element={<ContactPage />} />
-      </Routes>
+      <MainContent>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/projects" element={<ProjectsPage />} />
+          <Route path="/blog" element={<BlogPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+        </Routes>
+      </MainContent>
       <Footer />
     </Router>
   );
