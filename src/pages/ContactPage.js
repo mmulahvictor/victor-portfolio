@@ -1,20 +1,11 @@
-// src/pages/ProjectsPage.js
+// src/pages/ContactPage.js
 import React from 'react';
-import Projects from '../components/Projects';
-import styled from 'styled-components';
+import ContactForm from '../components/ContactForm';
 
-const ProjectsPageContainer = styled.div`
-  padding: 2rem;
-  text-align: center;
-`;
-
-const ProjectsPage = () => {
+const ContactPage = () => {
   return (
-    <ProjectsPageContainer>
-      <h2>Projects</h2>
-      <Projects />
-    </ProjectsPageContainer>
+    <ContactForm />
   );
 };
 
-export default ProjectsPage;
+export default ContactPage;
